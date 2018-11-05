@@ -11,8 +11,27 @@ namespace GitTest
 
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
             // ------------ Таблица -----------------
+            table();
+            WriteLine();
+
+            // ----------- Константы ----------------
+            constType();
+            WriteLine();
+
+        }
+
+        private static void wrLine()
+        {
+            for (int i = 0; i < Console.WindowWidth-1; i++)
+            {
+                Write("-");
+            }
+            Write("\n");
+        }
+
+        private static void table ()
+        {
             wrLine();
             // шапка
             WriteLine("{0,-10} {1,-3} {2,25} {3,28}", "column 1", "column 2", "column 3", "column 4");
@@ -31,10 +50,12 @@ namespace GitTest
 
             WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "double", sizeof(double), double.MinValue.ToString(), double.MaxValue.ToString());
             WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "decimal", sizeof(decimal), decimal.MinValue.ToString(), decimal.MaxValue.ToString());
-            
-            WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "float", sizeof(decimal), float.MinValue.ToString(), float.MaxValue.ToString());
-            WriteLine();
 
+            WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "float", sizeof(decimal), float.MinValue.ToString(), float.MaxValue.ToString());
+        }
+
+        private static void constType()
+        {
             int a = someConst * otherConst;
             WriteLine(a.ToString());
 
@@ -46,16 +67,6 @@ namespace GitTest
             int @int = 10;
             val3 = @int * 10;
             WriteLine($"@int = {@int}     val3 = {val3}");
-
-        }
-
-        private static void wrLine()
-        {
-            for (int i = 0; i < Console.WindowWidth-1; i++)
-            {
-                Write("-");
-            }
-            Write("\n");
         }
     }
 }
