@@ -41,7 +41,12 @@ namespace GitTest
             val1 = someConst + 3;
             val2 = val1 * otherConst;
             val3 = val1 + val2;
-            WriteLine("val1 = {val1:C}  val2 = {val2}  val3 = {val3}");
+            WriteLine($"val1 = {val1}  val2 = {val2}  val3 = {val3}");
+
+            int @int = 10;
+            val3 = @int * 10;
+            WriteLine($"@int = {@int}     val3 = {val3}");
+
         }
 
         private static void wrLine()
