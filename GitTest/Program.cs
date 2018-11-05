@@ -20,6 +20,9 @@ namespace GitTest
             WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "short", sizeof(short), short.MinValue.ToString(), short.MaxValue.ToString());
             WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "ushort", sizeof(ushort), ushort.MinValue.ToString(), ushort.MaxValue.ToString());
 
+            WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "int", sizeof(int), int.MinValue.ToString(), int.MaxValue.ToString());
+            WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "uint", sizeof(uint), uint.MinValue.ToString(), uint.MaxValue.ToString());
+
             WriteLine();
         }
 
