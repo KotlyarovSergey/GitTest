@@ -27,6 +27,7 @@ namespace GitTest
             WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "ulong", sizeof(ulong), ulong.MinValue.ToString(), ulong.MaxValue.ToString());
 
             WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "double", sizeof(double), double.MinValue.ToString(), double.MaxValue.ToString());
+            WriteLine("{0,-10} {1,-3} {2,28} {3,28}", "decimal", sizeof(decimal), decimal.MinValue.ToString(), decimal.MaxValue.ToString());
             WriteLine();
         }
 
