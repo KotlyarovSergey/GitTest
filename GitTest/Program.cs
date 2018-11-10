@@ -2,6 +2,7 @@
 using static System.Console;
 
 
+
 namespace GitTest
 {
     class Program
@@ -9,28 +10,40 @@ namespace GitTest
         private const int someConst = 12, otherConst = 25;
         private static int val1, val2, val3;
 
+
         static void Main(string[] args)
         {
+            goto M3;
             // ------------ Таблица -----------------
             table();
             WriteLine();
 
-            // ----------- Константы ----------------
+        // ----------- Константы ----------------
+        M1:
             constType();
             WriteLine();
 
+        // ------------ Строки форматы -----------
+        M2:
+            stringFormats();
+            WriteLine();
+
+            Console.Beep();
+
+        M3:
+            cursorMethods();
         }
 
         private static void wrLine()
         {
-            for (int i = 0; i < Console.WindowWidth-1; i++)
+            for (int i = 0; i < Console.WindowWidth - 1; i++)
             {
                 Write("-");
             }
             Write("\n");
         }
 
-        private static void table ()
+        private static void table()
         {
             wrLine();
             // шапка
@@ -67,6 +80,91 @@ namespace GitTest
             int @int = 10;
             val3 = @int * 10;
             WriteLine($"@int = {@int}     val3 = {val3}");
+        }
+
+        private static void stringFormats()
+        {
+            // Get user input.
+            System.Console.WriteLine("Enter a number");
+            string input = System.Console.ReadLine();
+
+            // Convert the input string to an int.
+            int j;
+            System.Int32.TryParse(input, out j);
+
+            // Write a different string each iteration.
+            string s;
+            for (int i = 0; i < 10; i++)
+            {
+                // A simple format string with no alignment formatting.
+                s = System.String.Format("{0} times {1} = {2}", i, j, (i * j));
+                System.Console.WriteLine(s);
+            }
+
+            //Keep the console window open in debug mode.
+            System.Console.ReadKey();
+
+            string s2 = String.Format("{0} блабла  {1} - {2}. Конец", 12, true, 12.34);
+            WriteLine(s2);
+
+            string s3 = "1234567890";
+            // так нельзя:
+            //s3[1] = s3[1];
+            //s3[2] = '3';
+
+            char[] s3_arr = { '1', '2', '3', '4', '5' };
+            s3 = new string(s3_arr);
+            WriteLine(s3);
+
+            s3_arr[1] = '7';
+            s3 = new string(s3_arr);
+            WriteLine(s3);
+
+        }
+
+        private static void cursorMethods()
+        {
+            int csz;
+            bool exit = false;
+            String input = string.Empty;
+            do
+            {
+                Clear();
+                csz = CursorSize;
+                WriteLine($"Cursor size: {csz}");
+                Write("Input new size of cursor (to exit input 0): ");
+                input = ReadLine();
+                if (System.Int32.TryParse(input, out csz))
+                {
+                    if (csz == 0)
+                        exit = true;
+                    else
+                    {
+                        if (csz > 100)
+                            csz = 100;
+                        CursorSize = csz;
+                    }
+                }
+            }
+            while (!exit);
+
+            WriteLine($"Cursor.Left: {CursorLeft}");
+            CursorLeft = 10;
+            Write("10");
+            CursorLeft = 5;
+            Write("05");
+            CursorLeft = 10;
+            Write("xx");
+            CursorTop = 5;
+            Write("Row 5");
+            Clear();
+            for (int i = 1; i < 11; i++)
+            {
+                Write("*");
+                ++CursorTop;
+            }
+
+            WriteLine();
         }
     }
 }
